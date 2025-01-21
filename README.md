@@ -55,9 +55,8 @@ Common Issues:
 
 Support:
 --------
-- Documentation: docs/
 - Issues: github.com/your-repo/issues
-- Email: support@yourtools.com
+- Email: 230152888@stu.vtc.edu.hk
 
 Legal Notice:
 ------------
@@ -65,5 +64,5 @@ Use this tool responsibly and in compliance with
 applicable laws and regulations. Unauthorized
 scanning may be illegal in your jurisdiction.
 
-Version: 1.0.0
+Version: 2.0.0
 Last Updated: [Date]
