@@ -27,16 +27,20 @@ bash
 git clone https://github.com/Marcus0910/FYP.git
 
  2. Navigate to the project directory
+
 cd FYP
 
  3. Update APT and install Python and pip
+
 sudo apt update
 sudo apt install python3 python3-pip
 
  4. Install dependencies and set up the environment
+
 python3 setup.py
 
  5. Run the main program
+
 python3 main.py
 
 
@@ -46,18 +50,23 @@ python3 main.py
 
 bash
  1. Clone the repository
+
 git clone https://github.com/Marcus0910/FYP.git
 
  2. Navigate to the project directory
+
 cd FYP
 
  3. Install Python and pip (if not already installed)
+
 sudo yum install python3 python3-pip
 
  4. Install dependencies and set up the environment
+
 python3 setup.py
 
  5. Run the main program
+
 python3 main.py
 
 
@@ -67,19 +76,24 @@ python3 main.py
 
 bash
  1. Clone the repository
+
 git clone https://github.com/Marcus0910/FYP.git
 
  2. Navigate to the project directory
+
 cd FYP
 
  3. Install Python and pip (if not already installed)
  macOS comes with Python pre-installed, but ensure pip is available
+
 python3 -m ensurepip --upgrade
 
  4. Install dependencies and set up the environment
+
 python3 setup.py
 
  5. Run the main program
+
 python3 main.py
 
 
