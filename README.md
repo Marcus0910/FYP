@@ -1,0 +1,156 @@
+ Web Scanning Tools
+
+A Python-based web scanning tool for performing Nmap and Nikto scans, managing scanning history, and generating reports.
+
+---
+
+ Prerequisites
+
+Before running the application, ensure your system meets the following requirements:
+- Python 3.8 or higher
+- Linux/Unix-based system (Windows and macOS are also supported)
+- Root/Administrator privileges (for installing dependencies)
+- Internet connection (for downloading dependencies)
+- MySQL server (for storing user accounts and scan results)
+
+---
+
+ Installation
+
+1. Clone the repository:
+   bash
+   git clone https://github.com/your-repository/web-scanning-tools.git
+   cd web-scanning-tools
+   
+
+2. Install dependencies:
+   Run the setup.py script to install all required Python packages and tools (e.g., Nmap and Nikto):
+   bash
+   sudo python3 setup.py
+   
+
+   > Note: On Windows or macOS, you can run the script without sudo.
+
+3. Verify installation:
+   After running setup.py, ensure all dependencies are installed successfully. The script will display a "Ready to go!" message if everything is installed correctly.
+
+---
+
+ Configuration
+
+The application uses a MySQL database for storing user accounts and scan results. The database configuration is defined in config.py:
+python
+DATABASECONFIG = {
+    'user': 'root',
+    'password': 'mysqlYRARJz',
+    'host': '157.173.126.210',   MySQL server IP address
+    'database': 'pythonfyp',
+    'port': 3306,
+}
+
+
+ Steps to Configure MySQL Database:
+1. Set up MySQL server:
+   - Install MySQL server if not already installed:
+     bash
+     sudo apt-get install mysql-server   For Ubuntu/Debian
+     sudo yum install mysql-server       For CentOS
+     
+   - Start the MySQL service:
+     bash
+     sudo systemctl start mysql
+     sudo systemctl enable mysql
+     
+
+2. Create the database:
+   - Log in to MySQL:
+     bash
+     mysql -u root -p
+     
+   - Create a database:
+     sql
+     CREATE DATABASE pythonfyp;
+     
+
+3. Modify config.py:
+   - Update the DATABASECONFIG with your MySQL server details.
+
+---
+
+ Usage
+
+1. Launch the application:
+   Run the main.py script to start the application:
+   bash
+   python3 main.py
+   
+
+2. Create a new account:
+   - When prompted, enter a username and password to register a new account.
+   - Ensure the password meets the requirements (letters and numbers only).
+
+3. Log in:
+   - After registering, log in with your credentials.
+
+4. Perform a scan:
+   - Enter the target URL or IP address in the "Target" field.
+   - Optionally, specify ports (e.g., 22,80,443).
+   - Click "Scan Ports" to start the scan.
+
+5. View and manage history:
+   - All scan results are saved in the database.
+   - Use the "History" tab to view, delete, or compare scan results.
+
+6. Generate reports:
+   - After a scan, click "Generate Report" to save the results as an HTML file.
+
+---
+
+ Safety Guidelines
+
+- Only scan websites you have permission to test.
+- Use the tool responsibly and in compliance with applicable laws and regulations.
+- Keep your credentials secure.
+- Regularly update the tool to the latest version.
+
+---
+
+ Common Issues
+
+1. Installation fails:
+   - Ensure your system meets the prerequisites.
+   - Verify your internet connection.
+   - Run the script with proper permissions (e.g., sudo on Linux).
+
+2. Scan errors:
+   - Check the target URL or IP address format.
+   - Verify network connectivity and firewall settings.
+
+3. Database connection issues:
+   - Ensure the MySQL server is running and accessible.
+   - Verify the database configuration in config.py.
+
+---
+
+ Support
+
+For issues or questions, please refer to:
+- Documentation: docs/
+- GitHub Issues: https://github.com/your-repository/issues
+- Email: 230152888@stu.vtc.edu.hk
+
+---
+
+ Legal Notice
+
+Use this tool responsibly and in compliance with applicable laws and regulations. Unauthorized scanning may be illegal in your jurisdiction.
+
+---
+
+ Version
+
+Current Version: 1.0.0  
+Last Updated: [Date]
+
+
+---
