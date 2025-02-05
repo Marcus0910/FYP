@@ -7,7 +7,6 @@ import bcrypt
 from config import DATABASE_CONFIG  # 导入数据库配置
 
 
-
 class LoginPage(ctk.CTk):
     def __init__(self):
         super().__init__()
@@ -20,7 +19,7 @@ class LoginPage(ctk.CTk):
         self.show_login_frame()
 
     def show_login_frame(self):
-        """Display the login screen"""
+        """显示登录界面"""
         if self.active_frame:
             self.active_frame.destroy()
 
@@ -48,7 +47,7 @@ class LoginPage(ctk.CTk):
         switch_to_signup.pack(pady=10)
 
     def show_signup_frame(self):
-        """Display the signup screen"""
+        """显示注册界面"""
         if self.active_frame:
             self.active_frame.destroy()
 
@@ -82,7 +81,7 @@ class LoginPage(ctk.CTk):
         switch_to_login.pack(pady=10)
 
     def login(self):
-        """Handle user login"""
+        """处理用户登录"""
         username = self.username_entry.get().strip()
         password = self.password_entry.get().strip()
 
@@ -94,17 +93,21 @@ class LoginPage(ctk.CTk):
             db = mysql.connector.connect(**DATABASE_CONFIG)
             cursor = db.cursor()
 
-            sql = "SELECT Password FROM UserName WHERE UserID = %s"
+            sql = "SELECT password FROM UserName WHERE UserID = %s"
             val = (username,)
             cursor.execute(sql, val)
             result = cursor.fetchone()
 
             if result:
                 hashed_password = result[0]
-                if bcrypt.checkpw(password.encode('utf-8'), hashed_password.encode('utf-8')):
-                    self.show_message("Success", "Login successful!", success=True)
-                else:
-                    self.show_message("Error", "Invalid username or password.")
+                try:
+                    if bcrypt.checkpw(password.encode('utf-8'), hashed_password.encode('utf-8')):
+                        self.show_message("Success", "Login successful!", success=True)
+                        self.open_main_page()
+                    else:
+                        self.show_message("Error", "Invalid username or password.")
+                except ValueError as e:
+                    self.show_message("Error", "Invalid password format. Please reset your password.")
             else:
                 self.show_message("Error", "Invalid username or password.")
 
@@ -117,7 +120,7 @@ class LoginPage(ctk.CTk):
                 db.close()
 
     def signup(self):
-        """Handle user signup"""
+        """处理用户注册"""
         username = self.new_username_entry.get().strip()
         password = self.new_password_entry.get().strip()
         confirm_password = self.confirm_password_entry.get().strip()
@@ -141,7 +144,7 @@ class LoginPage(ctk.CTk):
             db = mysql.connector.connect(**DATABASE_CONFIG)
             cursor = db.cursor()
 
-            sql = "INSERT INTO UserName (UserID, Password) VALUES (%s, %s)"
+            sql = "INSERT INTO UserName (UserID, password) VALUES (%s, %s)"
             val = (username, hashed_password)
             cursor.execute(sql, val)
             db.commit()
@@ -161,7 +164,7 @@ class LoginPage(ctk.CTk):
                 db.close()
 
     def show_message(self, title, message, success=False):
-        """Show a message box"""
+        """显示消息框"""
         message_box = ctk.CTkToplevel(self)
         message_box.title(title)
         message_box.geometry("400x200")
@@ -170,14 +173,18 @@ class LoginPage(ctk.CTk):
         ctk.CTkButton(message_box, text="OK", command=lambda: self.handle_message_box_close(message_box, success)).pack(pady=10)
 
     def handle_message_box_close(self, message_box, success):
-        """Handle message box close"""
+        """关闭消息框并在成功时继续执行"""
         message_box.destroy()
+        if success:
+            self.open_main_page()
+
+    def open_main_page(self):
+        """打开主程序界面"""
+        self.destroy()
+        root = ctk.CTk()
+        app = TabbedNmapApp(root)
+        root.mainloop()
 
     def on_close(self):
-        """Handle window close"""
+        """关闭程序"""
         self.destroy()
-
-
-if __name__ == "__main__":
-    app = LoginPage()
-    app.mainloop()
