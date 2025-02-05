@@ -13,69 +13,79 @@ Before running the application, ensure your system meets the following requireme
 - Internet connection (for downloading dependencies)
 - MySQL server (for storing user accounts and scan results)
 
----
+----------------------------------------------------------------------
 
  Installation
-
+On Linux : 
 1. Clone the repository:
-   bash
-   git clone https://github.com/your-repository/web-scanning-tools.git
-   cd web-scanning-tools
-   
+   <git clone https://github.com/Marcus0910/FYP.git>
+2.Update APT : 
+  sudo apt update
+  sudo apt install python3 python3-pip
 
-2. Install dependencies:
-   Run the setup.py script to install all required Python packages and tools (e.g., Nmap and Nikto):
-   bash
-   sudo python3 setup.py
-   
+4. cd to the FYP File :
+   <cd FYP>
 
-   > Note: On Windows or macOS, you can run the script without sudo.
+5. Install the environment :
+   Run Up the Setup.py with the following command :
+   <python Setup.py>
 
-3. Verify installation:
-   After running setup.py, ensure all dependencies are installed successfully. The script will display a "Ready to go!" message if everything is installed correctly.
+5.Run the main process : 
+   <pyhton main.py>
+----------------------------------------------------------------------
+  On Ununtu : 
+# 1. Clone the repository
+git clone https://github.com/Marcus0910/FYP.git
 
----
+# 2. Navigate to the project directory
+cd FYP
 
- Configuration
+# 3. Install Python and pip (if not already installed)
+sudo apt update
+sudo apt install python3 python3-pip
 
-The application uses a MySQL database for storing user accounts and scan results. The database configuration is defined in config.py:
-python
-DATABASECONFIG = {
-    'user': 'root',
-    'password': 'mysqlYRARJz',
-    'host': '157.173.126.210',   MySQL server IP address
-    'database': 'pythonfyp',
-    'port': 3306,
-}
+# 4. Install dependencies and set up the environment
+python3 setup.py
+
+# 5. Run the main program
+python3 main.py
+----------------------------------------------------------------------
+ On CenterOS
+# 1. Clone the repository
+git clone https://github.com/Marcus0910/FYP.git
+
+# 2. Navigate to the project directory
+cd FYP
+
+# 3. Install Python and pip (if not already installed)
+sudo yum install python3 python3-pip
+
+# 4. Install dependencies and set up the environment
+python3 setup.py
+
+# 5. Run the main program
+python3 main.py
+----------------------------------------------------------------------
+On MacOS : 
+# 1. Clone the repository
+git clone https://github.com/Marcus0910/FYP.git
+
+# 2. Navigate to the project directory
+cd FYP
+
+# 3. Install Python and pip (if not already installed)
+# macOS comes with Python pre-installed, but ensure pip is available
+python3 -m ensurepip --upgrade
+
+# 4. Install dependencies and set up the environment
+python3 setup.py
+
+# 5. Run the main program
+python3 main.py
 
 
- Steps to Configure MySQL Database:
-1. Set up MySQL server:
-   - Install MySQL server if not already installed:
-     bash
-     sudo apt-get install mysql-server   For Ubuntu/Debian
-     sudo yum install mysql-server       For CentOS
-     
-   - Start the MySQL service:
-     bash
-     sudo systemctl start mysql
-     sudo systemctl enable mysql
-     
 
-2. Create the database:
-   - Log in to MySQL:
-     bash
-     mysql -u root -p
-     
-   - Create a database:
-     sql
-     CREATE DATABASE pythonfyp;
-     
-
-3. Modify config.py:
-   - Update the DATABASECONFIG with your MySQL server details.
-
----
+----------------------------------------------------------------------
 
  Usage
 
@@ -104,7 +114,7 @@ DATABASECONFIG = {
 6. Generate reports:
    - After a scan, click "Generate Report" to save the results as an HTML file.
 
----
+----------------------------------------------------------------------
 
  Safety Guidelines
 
@@ -113,7 +123,7 @@ DATABASECONFIG = {
 - Keep your credentials secure.
 - Regularly update the tool to the latest version.
 
----
+----------------------------------------------------------------------
 
  Common Issues
 
@@ -130,21 +140,16 @@ DATABASECONFIG = {
    - Ensure the MySQL server is running and accessible.
    - Verify the database configuration in config.py.
 
----
+----------------------------------------------------------------------
 
  Support
 
 For issues or questions, please refer to:
-- Documentation: docs/
-- GitHub Issues: https://github.com/your-repository/issues
+- Documentation: Requestment.txt
+- GitHub Issues: [https://github.com/your-repository/issues](https://github.com/Marcus0910/FYP)
 - Email: 230152888@stu.vtc.edu.hk
 
----
-
- Legal Notice
-
-Use this tool responsibly and in compliance with applicable laws and regulations. Unauthorized scanning may be illegal in your jurisdiction.
-
+----------------------------------------------------------------------
 ---
 
  Version
