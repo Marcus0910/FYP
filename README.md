@@ -16,6 +16,9 @@ Before running the application, ensure your system meets the following requireme
 ----------------------------------------------------------------------
 
  Installation
+----------------------------------------------------------------------
+
+ Installation
 On Linux : 
 1. Clone the repository:
    <git clone https://github.com/Marcus0910/FYP.git>
@@ -84,6 +87,8 @@ python3 setup.py
 python3 main.py
 
 
+
+----------------------------------------------------------------------
 
 ----------------------------------------------------------------------
 
