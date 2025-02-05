@@ -17,33 +17,14 @@ Before running the application, ensure your system meets the following requireme
 
  Installation
 ----------------------------------------------------------------------
-
- Installation
-On Linux : 
-1. Clone the repository:
-   <git clone https://github.com/Marcus0910/FYP.git>
-2.Update APT : 
-  sudo apt update
-  sudo apt install python3 python3-pip
-
-4. cd to the FYP File :
-   <cd FYP>
-
-5. Install the environment :
-   Run Up the Setup.py with the following command :
-   <python Setup.py>
-
-5.Run the main process : 
-   <pyhton main.py>
-----------------------------------------------------------------------
-  On Ununtu : 
+On Linux (Ubuntu)
 # 1. Clone the repository
 git clone https://github.com/Marcus0910/FYP.git
 
 # 2. Navigate to the project directory
 cd FYP
 
-# 3. Install Python and pip (if not already installed)
+# 3. Update APT and install Python and pip
 sudo apt update
 sudo apt install python3 python3-pip
 
@@ -52,8 +33,9 @@ python3 setup.py
 
 # 5. Run the main program
 python3 main.py
-----------------------------------------------------------------------
- On CenterOS
+--- 
+On CentOS
+
 # 1. Clone the repository
 git clone https://github.com/Marcus0910/FYP.git
 
@@ -68,8 +50,9 @@ python3 setup.py
 
 # 5. Run the main program
 python3 main.py
-----------------------------------------------------------------------
-On MacOS : 
+---
+On macOS
+
 # 1. Clone the repository
 git clone https://github.com/Marcus0910/FYP.git
 
@@ -85,11 +68,6 @@ python3 setup.py
 
 # 5. Run the main program
 python3 main.py
-
-
-
-----------------------------------------------------------------------
-
 ----------------------------------------------------------------------
 
  Usage
