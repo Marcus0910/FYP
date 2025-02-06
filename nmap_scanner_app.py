@@ -4,6 +4,7 @@ import threading
 import xml.etree.ElementTree as ET
 from tkinter import ttk, messagebox
 import os
+from datetime import datetime
 
 
 class NmapScannerApp:
@@ -183,70 +184,88 @@ class NmapScannerApp:
         return nikto_results
 
     def generate_report(self):
-        """Generate and save an HTML report"""
+        # Generate and save an HTML report with Nmap and Nikto command line outputs
         if not self.scan_results:
             self.show_error_message("Error", "No scan results to generate a report.")
             return
 
-        # Define the output file path
-        output_file = os.path.join(os.getcwd(), "vulnerability_scan_report.html")
+        output_file = os.path.join(os.getcwd(), "scan_report.html")
+        target = self.target_input.get()
+        ports = self.port_input.get().strip()
 
         try:
-            # Create the HTML content
-            html_content = """
+            # Get current timestamp
+            current_time = datetime.now().strftime("%a %b %d %H:%M:%S %Y")
+            
+            # Run Nmap scan
+            nmap_command = ["nmap", "--privileged", "-sV"]
+            if ports:
+                nmap_command.extend(["-p", ports])
+            nmap_command.extend([target])
+            
+            nmap_process = subprocess.run(nmap_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+            nmap_output = nmap_process.stdout
+
+            # Run Nikto scan
+            nikto_command = ["nikto", "-h", target]
+            if ports:
+                nikto_command.extend(["-p", ports])
+            
+            nikto_process = subprocess.run(nikto_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+            nikto_output = nikto_process.stdout
+
+            # Create HTML content
+            html_content = f"""
             <!DOCTYPE html>
             <html lang="en">
             <head>
                 <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Vulnerability Scan Report</title>
+                <title>Scan Report</title>
                 <style>
-                    body { font-family: Arial, sans-serif; margin: 20px; }
-                    h1 { color: #333; }
-                    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-                    th, td { border: 1px solid #ddd; padding: 8px; text-align: center; }
-                    th { background-color: #f2f2f2; }
-                    tr:nth-child(even) { background-color: #f9f9f9; }
-                    tr:hover { background-color: #f1f1f1; }
+                    body {{
+                        font-family: monospace;
+                        margin: 20px;
+                        background-color: white;
+                        color: black;
+                        white-space: pre-wrap;
+                        word-wrap: break-word;
+                    }}
+                    h1 {{
+                        font-family: Arial, sans-serif;
+                        font-size: 24px;
+                        margin-bottom: 20px;
+                    }}
+                    h2 {{
+                        font-family: Arial, sans-serif;
+                        font-size: 20px;
+                        margin-top: 30px;
+                        margin-bottom: 10px;
+                    }}
+                    .output {{
+                        font-family: monospace;
+                        font-size: 14px;
+                        line-height: 1.4;
+                    }}
                 </style>
             </head>
             <body>
-                <h1>Vulnerability Scan Report</h1>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Tool</th>
-                            <th>Port/URL</th>
-                            <th>Risk Level</th>
-                            <th>Description</th>
-                            <th>Service</th>
-                            <th>Version</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            """
+                <h1>Scan Report</h1>
+                
+                <h2>Nmap Results:</h2>
+                <div class="output">
+    {nmap_output}
+                </div>
 
-            for result in self.scan_results:
-                html_content += f"""
-                        <tr>
-                            <td>{result[0]}</td>
-                            <td>{result[1]}</td>
-                            <td>{result[2]}</td>
-                            <td>{result[3]}</td>
-                            <td>{result[4]}</td>
-                            <td>{result[5]}</td>
-                        </tr>
-                """
-
-            html_content += """
-                    </tbody>
-                </table>
+                <h2>Nikto Results:</h2>
+                <div class="output">
+    {nikto_output}
+                </div>
             </body>
             </html>
             """
 
             # Write the HTML content to a file
-            with open(output_file, "w") as file:
+            with open(output_file, "w", encoding='utf-8') as file:
                 file.write(html_content)
 
             messagebox.showinfo("Success", f"Report generated successfully: {output_file}")
