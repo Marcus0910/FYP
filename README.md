@@ -24,9 +24,11 @@ Before running the application, ensure your system meets the following requireme
 
 bash
  1. Clone the repository
+
+
 git clone https://github.com/Marcus0910/FYP.git
 
- 2. Navigate to the project directory
+ 3. Navigate to the project directory
 
 cd FYP
 
