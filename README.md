@@ -1,3 +1,5 @@
+---
+
  Web Scanning Tools
 
 A Python-based web scanning tool for performing Nmap and Nikto scans, managing scanning history, and generating reports.
@@ -7,6 +9,7 @@ A Python-based web scanning tool for performing Nmap and Nikto scans, managing s
  Prerequisites
 
 Before running the application, ensure your system meets the following requirements:
+
 - Python 3.8 or higher
 - Linux/Unix-based system (Windows and macOS are also supported)
 - Root/Administrator privileges (for installing dependencies)
@@ -17,28 +20,118 @@ Before running the application, ensure your system meets the following requireme
 
  Installation
 
-1. Clone the repository:
+ On Linux (Ubuntu)
+
+bash
+ 1. Clone the repository
+git clone https://github.com/Marcus0910/FYP.git
+
+ 2. Navigate to the project directory
+
+cd FYP
+
+ 3. Update APT and install Python and pip
+
+sudo apt update
+sudo apt install python3 python3-pip
+
+ 4. Install dependencies and set up the environment
+
+python3 setup.py
+
+ 5. Run the main program
+
+python3 main.py
+
+
+---
+
+ On CentOS
+
+bash
+ 1. Clone the repository
+
+git clone https://github.com/Marcus0910/FYP.git
+
+ 2. Navigate to the project directory
+
+cd FYP
+
+ 3. Install Python and pip (if not already installed)
+
+sudo yum install python3 python3-pip
+
+ 4. Install dependencies and set up the environment
+
+python3 setup.py
+
+ 5. Run the main program
+
+python3 main.py
+
+
+---
+
+ On macOS
+
+bash
+ 1. Clone the repository
+
+git clone https://github.com/Marcus0910/FYP.git
+
+ 2. Navigate to the project directory
+
+cd FYP
+
+ 3. Install Python and pip (if not already installed)
+ macOS comes with Python pre-installed, but ensure pip is available
+
+python3 -m ensurepip --upgrade
+
+ 4. Install dependencies and set up the environment
+
+python3 setup.py
+
+ 5. Run the main program
+
+python3 main.py
+
+
+---
+
+ Usage
+
+1. Launch the application:
+   Run the main.py script to start the application:
    bash
-   git clone https://github.com/your-repository/web-scanning-tools.git
-   cd web-scanning-tools
+   python3 main.py
    
 
-2. Install dependencies:
-   Run the setup.py script to install all required Python packages and tools (e.g., Nmap and Nikto):
-   bash
-   sudo python3 setup.py
-   
+2. Create a new account:
+   - When prompted, enter a username and password to register a new account.
+   - Ensure the password meets the requirements (letters and numbers only).
 
-   > Note: On Windows or macOS, you can run the script without sudo.
+3. Log in:
+   - After registering, log in with your credentials.
 
-3. Verify installation:
-   After running setup.py, ensure all dependencies are installed successfully. The script will display a "Ready to go!" message if everything is installed correctly.
+4. Perform a scan:
+   - Enter the target URL or IP address in the "Target" field.
+   - Optionally, specify ports (e.g., 22,80,443).
+   - Click Scan Ports to start the scan.
+
+5. View and manage history:
+   - All scan results are saved in the database.
+   - Use the History tab to view, delete, or compare scan results.
+
+6. Generate reports:
+   - After a scan, click Generate Report to save the results as an HTML file.
 
 ---
 
  Configuration
 
 The application uses a MySQL database for storing user accounts and scan results. The database configuration is defined in config.py:
+
 python
 DATABASECONFIG = {
     'user': 'root',
@@ -49,7 +142,8 @@ DATABASECONFIG = {
 }
 
 
- Steps to Configure MySQL Database:
+ Steps to Configure MySQL Database
+
 1. Set up MySQL server:
    - Install MySQL server if not already installed:
      bash
@@ -74,35 +168,6 @@ DATABASECONFIG = {
 
 3. Modify config.py:
    - Update the DATABASECONFIG with your MySQL server details.
-
----
-
- Usage
-
-1. Launch the application:
-   Run the main.py script to start the application:
-   bash
-   python3 main.py
-   
-
-2. Create a new account:
-   - When prompted, enter a username and password to register a new account.
-   - Ensure the password meets the requirements (letters and numbers only).
-
-3. Log in:
-   - After registering, log in with your credentials.
-
-4. Perform a scan:
-   - Enter the target URL or IP address in the "Target" field.
-   - Optionally, specify ports (e.g., 22,80,443).
-   - Click "Scan Ports" to start the scan.
-
-5. View and manage history:
-   - All scan results are saved in the database.
-   - Use the "History" tab to view, delete, or compare scan results.
-
-6. Generate reports:
-   - After a scan, click "Generate Report" to save the results as an HTML file.
 
 ---
 
@@ -135,22 +200,21 @@ DATABASECONFIG = {
  Support
 
 For issues or questions, please refer to:
-- Documentation: docs/
-- GitHub Issues: https://github.com/your-repository/issues
+- Documentation: Requestment.txt
+- GitHub Issues: https://github.com/Marcus0910/FYP/issues
 - Email: 230152888@stu.vtc.edu.hk
-
----
-
- Legal Notice
-
-Use this tool responsibly and in compliance with applicable laws and regulations. Unauthorized scanning may be illegal in your jurisdiction.
 
 ---
 
  Version
 
 Current Version: 1.0.0  
-Last Updated: [Date]
+Last Updated: 5/2/2025
 
+---
+
+ About
+
+A Python-based web scanning tool for performing Nmap and Nikto scans, managing scanning history, and generating reports.
 
 ---

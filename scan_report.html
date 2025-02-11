@@ -1,0 +1,64 @@
+
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <title>Scan Report</title>
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        margin: 20px;
+                        line-height: 1.6;
+                    }
+                    h1, h2 {
+                        color: #333;
+                    }
+                    table {
+                        border-collapse: collapse;
+                        width: 100%;
+                        margin-top: 20px;
+                    }
+                    table, th, td {
+                        border: 1px solid #ddd;
+                    }
+                    th, td {
+                        padding: 8px;
+                        text-align: left;
+                    }
+                    th {
+                        background-color: #f2f2f2;
+                    }
+                    .settings {
+                        background-color: #f9f9f9;
+                        padding: 10px;
+                        border: 1px solid #ddd;
+                        margin-bottom: 20px;
+                    }
+                </style>
+            </head>
+            <body>
+                <h1>Scan Report</h1>
+            
+            <h2>Scan Settings</h2>
+            <div class="settings">
+                <p><b>NSE Scripts:</b> /all</p>
+                <p><b>Timing Mode:</b> T1</p>
+                <p><b>Nmap User-Agent:</b> Brave</p>
+                <p><b>Nikto User-Agent:</b> Brave</p>
+            </div>
+            
+            <h2>Scan Results</h2>
+            <table>
+                <tr>
+                    <th>Tool</th>
+                    <th>Port/URL</th>
+                    <th>Risk Level</th>
+                    <th>Description</th>
+                    <th>Service</th>
+                    <th>Version</th>
+                    <th>Scan Time</th>
+                </tr>
+            <tr><td>Nmap</td><td>80</td><td>open</td><td></td><td>http</td><td>nginx 1.24.0</td><td>2025-02-11 12:00:00</td></tr><tr><td>Nmap</td><td>443</td><td>open</td><td></td><td>tcpwrapped</td><td></td><td>2025-02-11 11:02:19</td></tr><tr><td>Nmap</td><td>80</td><td>open</td><td></td><td>http</td><td>nginx</td><td>2025-02-11 11:24:14</td></tr><tr><td>Nmap</td><td>80</td><td>open</td><td></td><td>http</td><td>nginx</td><td>2025-02-11 11:26:03</td></tr><tr><td>Nmap</td><td>80</td><td>open</td><td></td><td>http</td><td>nginx</td><td>2025-02-11 11:36:30</td></tr><tr><td>Nmap</td><td>80</td><td>open</td><td></td><td>http</td><td>nginx</td><td>2025-02-11 11:40:39</td></tr>
+            </table>
+            </body>
+            </html>
+            

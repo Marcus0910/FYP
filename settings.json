@@ -1,0 +1,7 @@
+{
+    "nse_scripts": "/all",
+    "timing_mode": "T1",
+    "nmap_user_agent": "Brave",
+    "nikto_user_agent": "Brave",
+    "default_nse_option": "custom"
+}
