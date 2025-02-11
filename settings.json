@@ -1,6 +1,0 @@
-{
-    "nse_scripts": "https-redirect.nse\nip-https-discover.nse",
-    "timing_mode": "T1",
-    "nmap_user_agent": "Brave",
-    "nikto_user_agent": "Chrome"
-}
